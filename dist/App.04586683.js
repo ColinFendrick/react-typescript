@@ -25153,7 +25153,30 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"Counter.tsx":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"Count.tsx":[function(require,module,exports) {
+"use strict";
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  }
+  result["default"] = mod;
+  return result;
+};
+
+exports.__esModule = true;
+
+var React = __importStar(require("react"));
+
+var Count = function Count(_a) {
+  var count = _a.count;
+  return React.createElement("h1", null, count);
+};
+
+exports["default"] = Count;
+},{"react":"../node_modules/react/index.js"}],"CounterClass.tsx":[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -25192,9 +25215,17 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
 exports.__esModule = true;
 
 var React = __importStar(require("react"));
+
+var Count_1 = __importDefault(require("./Count"));
 
 var Counter =
 /** @class */
@@ -25210,13 +25241,13 @@ function (_super) {
 
     _this.increment = function () {
       return _this.setState({
-        count: _this.state.count + 1
+        count: _this.state.count += 1
       });
     };
 
     _this.decrement = function () {
       return _this.setState({
-        count: _this.state.count - 1
+        count: _this.state.count -= 1
       });
     };
 
@@ -25229,11 +25260,13 @@ function (_super) {
         increment = _a.increment,
         decrement = _a.decrement;
 
-    return React.createElement("div", null, React.createElement("h1", null, count), React.createElement("button", {
+    return React.createElement("div", null, React.createElement(Count_1.default, {
+      count: count
+    }), React.createElement("button", {
       onClick: increment
-    }, "Increment"), React.createElement("button", {
+    }, "Inc"), React.createElement("button", {
       onClick: decrement
-    }, "Decrement"));
+    }, "Dec"));
   };
 
   ;
@@ -25242,7 +25275,7 @@ function (_super) {
 
 exports["default"] = Counter;
 ;
-},{"react":"../node_modules/react/index.js"}],"App.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Count":"Count.tsx"}],"App.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importStar = this && this.__importStar || function (mod) {
@@ -25267,10 +25300,10 @@ var React = __importStar(require("react"));
 
 var react_dom_1 = require("react-dom");
 
-var Counter_1 = __importDefault(require("./Counter"));
+var CounterClass_1 = __importDefault(require("./CounterClass"));
 
-react_dom_1.render(React.createElement(Counter_1.default, null), document.getElementById('main'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Counter":"Counter.tsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+react_dom_1.render(React.createElement(CounterClass_1.default, null), document.getElementById('main'));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./CounterClass":"CounterClass.tsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

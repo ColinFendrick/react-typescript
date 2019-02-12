@@ -1,22 +1,9 @@
 {
   "name": "react-typescript",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An example of how to use React and TypeScript with Parcel",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel src/index.html"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.2",
-    "@types/react-dom": "^16.8.0",
-    "parcel-bundler": "^1.11.0",
-    "typescript": "^3.3.3"
-  }
+  "keywords": []
 }
